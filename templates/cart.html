@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block title %}
+cart
+{% endblock title %}
+{% block head %}
+<style>
+    #cont3{
+    color: white;
+    }
+    </style>
+{% endblock head %}
+{% block main %}
+{% if message %}
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped mt-3">
+            <thead class="thead">
+                <tr>
+                    <th class="fs-2">Product</th>
+                    <th class="fs-2">Details</th>
+                    <th class="fs-2">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>{{ message }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="table-responsive">
+        {% if success %}
+        <div class="alert alert-success show fade alert-dismissible"
+            role="alert">
+            {{ success }}
+            <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        {% endif %}
+        <table class="table table-striped mt-3">
+            <thead class="thead">
+                <tr>
+                    <th class="fs-2">Product</th>
+                    <th class="fs-2">Details</th>
+                    <th class="fs-2">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cart in carts %}
+                <tr class="align-middle">
+                    <td><img class="rounded-4" src="/static/images/{{
+                            cart['image'] }}" height="60"></td>
+                    <td>
+                        <ul class="list-unstyled d-inline">
+                            <li><p class="text-uppercase p-0 m-0 d-inline">{{
+                                    cart["name"] }}</p></li>
+                            <li><p class="p-0 m-0">{{ cart["origin"] }}</p></li>
+                            <li><p>{{ cart["color"] }}</p></li>
+                        </ul>
+                    </td>
+                    <td><p>{{ cart["price"] }}</p></td>
+                    <form id="form2{{ cart['card_id'] }}" hidden
+                        action="/delete" method="post">
+                        <input type="hidden" name="product_id" value="{{
+                            cart['card_id'] }}">
+                    </form>
+                    <td><button type="submit" form="form2{{ cart['card_id'] }}"
+                            class="btn btn-danger inner">Remove <i
+                                class="fa-solid fa-trash"></i></button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock main %}

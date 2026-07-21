@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}
+Lookup
+{% endblock title %}
+{% block head %}
+<style>
+    #cont1{
+    color: white;
+    }
+    body{
+    background-color: lightgrey;
+    }
+    </style>
+{% endblock head %}
+{% block main %}
+<div class="container my-5">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-danger show fade alert-dismissible"
+        role="alert">
+        {{ msg }}
+        <button type="button" class="btn-close"
+            data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1 class="mb-4">New Arrivals</h1>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-1 g-3">
+        {% for product in products %}
+        <div class="col inner">
+            <div class=" card shadow h-100">
+                <img class="card-img-top shadow" src="/static/images/{{
+                    product['image'] }}">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <h4 class="m-0">{{ product["name"]}}</h4>
+                    <h6>{{ product["price"] }}</h6>
+                    <a href="/buy/{{ product['id'] }}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock main %}

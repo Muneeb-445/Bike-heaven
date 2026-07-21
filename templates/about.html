@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}
+About
+{% endblock title %}
+{% block head %}
+<style>
+    #cont4{
+    color: white;
+    }
+    </style>
+{% endblock head %}
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="about col-12">
+        </div>
+    </div>
+</div>
+<div class="container" style="background-color: #F0F0F0">
+    <div class="row mt-md-5 mb-md-5 mt-0 mb-0 align-items-center
+        justify-content-between">
+        <div class="col-md-5 offset-md-1 mt-5 mb-5">
+            <img class="img-fluid" src="/static/images/about2.jpg"
+                alt="cycle-image">
+        </div>
+        <div class="col-md-5 mb-5 fw-bolder">
+            <h1 class="fw-bold mt-4">Welcome To Bike Heaven</h1>
+            <hr>
+            <p>Our club is a #1 place for bike professionals and enthusiasts.</p>
+            <p>The BikeHeaven Cycling Club was founded in 1999 and promotes safe
+                cycling practices, physical achievement, and the social benefits
+                of group cycling.
+            </p>
+            <button class="btn p-2" style="background: #EB1C24; color: white;
+                font-family: sans-serif;">Read More</button>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock main %}

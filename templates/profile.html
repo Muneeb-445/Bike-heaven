@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}
+Profile
+{% endblock title %}
+{% block main %}
+<div class="container-fluid pt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="text-center" style="position:relative; bottom: 4%;
+                z-index: 1;">
+                <img class="rounded-circle border border-5 border-white
+                    inner"
+                    src="/static/images/{{ profile[0]['profile_image'] }}"
+                    width="150" height="150">
+            </div>
+            <div class="card px-3 shadow-lg" style="position: relative; bottom:
+                14%;">
+                <div class="row mt-5 mb-3">
+                    <div class="col-12 col-lg-6 mt-5 mt-lg-3">
+                        <div class="card h-100 col-md-12">
+                            <div class="card-header">
+                                <h6 class="text-uppercase">Personal information</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-3">
+                                    <p class=""><i class="fa-sharp fa-solid
+                                            fa-envelope me-2"></i>{{
+                                        profile[0]["email"] }}</p>
+                                    <p class=""><i class="fa-solid fa-phone
+                                            me-2"></i>{{
+                                        profile[0]["phone_number"] }}</p>
+                                    <p class=""><i class="fa-solid
+                                            fa-location-dot me-2"></i>{{
+                                        profile[0]["address"] }}</p>
+                                    <p class=""><i class="fa-solid fa-id-card
+                                            me-2"></i>{{ profile[0]["cnic"] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-12 mt-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h6 class=" text-uppercase">About Me</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-3">
+                                    <p contenteditable spellcheck="false">Lorem
+                                        ipsum dolor sit amet, consectetur
+                                        adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore
+                                        magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco
+                                        laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in
+                                        reprehenderit in voluptate velit esse
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-3">
+                    <a href="/edit" class="btn btn-dark w-25 inner"><i
+                            class="fa-solid fa-pen-to-square"></i> Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock main %}

@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block title %}
+Purchases
+{% endblock title %}
+{% block head %}
+<style>
+    #cont2{
+    color: white;
+    }
+    </style>
+{% endblock head %}
+{% block main %}
+{% if message %}
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped mt-3">
+            <thead class="thead">
+                <tr>
+                    <th class="fs-2">Product</th>
+                    <th class="fs-2">Details</th>
+                    <th class="fs-2">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>{{ message }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="container-lg">
+    <div class="row align">
+        {% if success %}
+        <div class="alert alert-success show fade alert-dismissible"
+            role="alert">
+            {{ success }}
+            <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+        {% endif %}
+        <div class="table-responsive">
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th class="fs-2">Product</th>
+                        <th class="fs-2">Details</th>
+                        <th class="fs-2">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in product %}
+                    <tr class="align-middle">
+                        <td><img class="rounded-4" src="/static/images/{{
+                                item['image'] }}" height="60"></td>
+                        <td>
+                            <ul class="list-unstyled d-inline">
+                                <li><p class="text-uppercase p-0 m-0 d-inline">{{
+                                        item["name"] }}</p></li>
+                                <li><p class="p-0 m-0">{{ item["origin"] }}</p></li>
+                                <li><p>{{ item["color"] }}</p></li>
+                            </ul>
+                        </td>
+                        <td><p>{{ item["price"] }}</p></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock main %}

@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+{% block title %}
+Add_product
+{% endblock %}
+{% block main %}
+<section class="vh-100 gradient-custom mb-3">
+    <div class="container py-3 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-10">
+                <div class="card shadow-2-strong card-registration shadow"
+                    style="border-radius: 8px; background: rgba(256, 256, 256,
+                    0.4);">
+                    <div class="card-body p-4 p-md-5">
+                        <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center
+                            fw-bold"> ADD PRODUCTS</h1>
+                        <form action="/add_product" method="post"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <label class="form-label"
+                                            for="firstName">Product Name
+                                        </label>
+                                        <input type="text" id="firstName"
+                                            placeholder="Product Name"
+                                            class="form-control form-control-lg"
+                                            name="product_name" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <label class="form-label"
+                                            for="lastName">Origin
+                                        </label>
+                                        <input type="text" id="lastName"
+                                            placeholder="Origin"
+                                            class="form-control form-control-lg"
+                                            name="origin" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label"
+                                            for="emailAddress">Color
+                                        </label>
+                                        <input type="text" id="emailAddress"
+                                            placeholder="Color"
+                                            class="form-control form-control-lg"
+                                            name="color" required/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label"
+                                            for="phoneNumber">Price
+                                        </label>
+                                        <input type="tel" id="phoneNumber"
+                                            placeholder="Price"
+                                            class="form-control form-control-lg"
+                                            name="price" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="file" id="homeAddress"
+                                    class="form-control form-control-lg"
+                                    name="file" required/>
+                            </div>
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg"
+                                    type="submit" value="ADD"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
+{% endblock main%}

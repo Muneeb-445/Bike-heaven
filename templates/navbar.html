@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg p-3">
+    <div class="container">
+        <div style="width:13rem">
+            <div class="brand">
+                <a class="navbar-brand ms-2 fs-3" href="/">Bike Heaven</a>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            {% if session["user_id"] %}
+            <div class="navbar-nav m-auto">
+                <a id="cont0" class="nav-link ms-3" aria-current="page"
+                    href="/home">Home</a>
+                <a id="cont4" class="nav-link ms-3" href="/about">About</a>
+                <a id="cont1" class="nav-link ms-3" aria-current="page"
+                    href="/products">Products</a>
+                <a id="cont2" class="nav-link ms-3" href="/purchases">Purchases</a>
+                <a id="cont3" class="nav-link ms-3" href="/cart">Cart</a>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-toggle text-secondary"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item" href="/profile">View Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/edit">Edit Profile</a>
+                    </li>
+                    {% if session["is_admin"] %}
+                    <li>
+                        <a class="dropdown-item" href="/add_product">Add Product</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            {% else %}
+            <ul class="navbar-nav ms-auto">
+                <li><a class="nav-link active" href="/login">Login</a></li>
+                <li><a class="nav-link active" href="/register">Register</a></li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
